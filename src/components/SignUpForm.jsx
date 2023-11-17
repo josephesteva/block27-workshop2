@@ -7,6 +7,9 @@ const SignUpForm = ({setToken}) => {
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
+		if (username.length < 8) {
+			alert(`Username must be at least 8 characters`);
+		} else {
 		try {
 			const response = await fetch(`https://fsa-jwt-practice.herokuapp.com/signup`,
 				{
@@ -26,7 +29,7 @@ const SignUpForm = ({setToken}) => {
 			setError(error.message)
 			console.log(`An error occured`)
 		}
-	} 
+	}}
 
 	return (
 		<>
@@ -35,7 +38,7 @@ const SignUpForm = ({setToken}) => {
 			<form onSubmit={handleSubmit}>
 				<label>
 					Username: <input type="text" value={username} onChange={(event) => {
-						setUsername(event.target.value)
+							setUsername(event.target.value)
 					}} />
 				</label>
 				<label >
@@ -44,7 +47,6 @@ const SignUpForm = ({setToken}) => {
 					}} />
 				</label>
 				<button>Submit</button>
-				{/* <h3>{username}</h3> */}
 			</form>
 		</>
 	)

@@ -17,7 +17,7 @@ const Authenticate = ({token}) => {
 			);
 			const result = await response.json();
 			console.log(result)
-			setSuccessMessage(result.message);
+			setSuccessMessage(result.data.username + " Was " + result.message);
 		} catch(error) {
 			setError(error.message)
 		}

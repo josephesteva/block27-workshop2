@@ -6,13 +6,17 @@ import './App.css'
 const App = () => {
 	const [token, setToken] = useState(null);
 
-  return (
-    <>
-			<SignUpForm setToken={setToken} />
-			<Authenticate token={token}/>
+	return (
+		<>
+			<section>
+				<SignUpForm setToken={setToken} />
+			</section>
+			<section>
+				<Authenticate token={token} />
+			</section>
 		</>
 
-  )
+	)
 }
 
 export default App
